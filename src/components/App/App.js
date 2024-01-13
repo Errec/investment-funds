@@ -3,6 +3,9 @@ import React, { useEffect } from 'react';
 import './App.sass';
 import { connect } from 'react-redux';
 
+// Components
+import Header from '../Header/Header.js'
+
 // Types
 import { FETCH_FUNDS_DETAIL_FULL } from '../../redux/funds/types';
 
@@ -28,13 +31,11 @@ const App = (props) => {
 
     return (
         <main className="App">
-            <header>
-                {isLoading ? (
+                {!isLoading ? (
                     <p>LOADING...</p>
                 ):(
-                    <h1>TITLE</h1>
+                    <Header></Header>
                 )}
-            </header>
         </main>
     );
 };
