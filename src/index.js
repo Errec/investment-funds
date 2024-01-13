@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
+import 'foundation-sites/dist/css/foundation.min.css';
+import 'typeface-roboto-slab';
 
 // Styles
 import './index.css';

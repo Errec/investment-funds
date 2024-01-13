@@ -15,7 +15,7 @@ const store = createStore(rootReducers, {}, composeEnhancers(applyMiddleware(sag
 // run the saga
 sagaMiddleware.run(rootSagas);
 
-export default (props) => {
+const Providers = (props) => {
   const { children } = props;
   return (
     <Provider store={store}>
@@ -23,3 +23,5 @@ export default (props) => {
     </Provider>
   );
 };
+
+export default Providers;
