@@ -1,10 +1,13 @@
 // Modules
 import React, { useEffect } from 'react';
-import './App.sass';
 import { connect } from 'react-redux';
+
+// Styles
+import './App.sass';
 
 // Components
 import Header from '../Header/Header.js'
+import Legend from '../Legend/Legend.js'
 
 // Types
 import { FETCH_FUNDS_DETAIL_FULL } from '../../redux/funds/types';
@@ -34,7 +37,10 @@ const App = (props) => {
                 {!isLoading ? (
                     <p>LOADING...</p>
                 ):(
-                    <Header></Header>
+                    <>
+                        <Header></Header>
+                        <Legend></Legend>
+                    </>
                 )}
         </main>
     );
