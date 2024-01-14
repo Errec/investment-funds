@@ -4,6 +4,7 @@ import { Cell } from 'react-foundation';
 
 // Components
 import TableHead from './TableHead/TableHead.js'
+import TableBody from './TableBody/TableBody.js'
 
 // Styles
 import './FundsTable.sass';
@@ -14,6 +15,7 @@ const FundsTable = () => {
             <div className="new-table-responsive">
                 <table className="funds-table--responsive">
                     <TableHead></TableHead>
+                    <TableBody></TableBody>
                 </table>
             </div>
         </Cell>
