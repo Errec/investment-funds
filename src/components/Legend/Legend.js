@@ -40,21 +40,21 @@ const Legend = () => {
     return (
         <section className="legend">
             <Grid className="legend__wrapper">
-                <Cell className="legend__list" small={12} medium={9} large={9} isColumn>
+                <Cell className="legend__list" large={9} medium={9} small={12} isColumn={true} isExpanded>
                     <p className="legend__title">
                         <strong>LEGENDA</strong>
                     </p>
                     <Grid className="legend__list--1">
                         {legends.map((item, index) => 
-                            <Cell className={"legend__item"} large={3} medium={3} small={12} isColumn key={index}>
-                                <item.icon className={`legend__icon legend__icon--${item.iconName}`} color={item.color}/>
-                                <span className={"legend__description"}>{item.description}</span>
+                            <Cell className={"legend__item"} large={3} medium={3} small={12} isColumn={true} key={index}>
+                                <item.icon className={`legend__icon legend__icon--${item.iconName}`} size={20} color={item.color}/>
+                                <p className={"legend__description"}>{item.description}</p>
                             </Cell>)}
                     </Grid>
                     <Grid className="legend__list--2">
-                        <Cell className={"legend__item"} large={3} medium={3} small={12} isColumn>
-                            <EarthPlusIcon className={"legend__icon legend__icon--earth"} color={'#639d31'}/>
-                            <span className={"legend__description"}>Investimento ESG (Environmental, Social and Governance)</span>
+                        <Cell className={"legend__item"} large={3} medium={3} small={12} isColumn={true}>
+                            <EarthPlusIcon className={"legend__icon legend__icon--earth"} size={20} color={'#639d31'}/>
+                            <p className={"legend__description"}>Investimento ESG (Environmental, Social and Governance)</p>
                         </Cell>
                     </Grid>
                 </Cell>

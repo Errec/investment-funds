@@ -28,9 +28,7 @@ const App = (props) => {
         dispatch({
             type: FETCH_FUNDS_DETAIL_FULL.REQUEST,
         });
-    })
-
-    console.log(data);
+    }, [])
 
     return (
         <main className="App">
