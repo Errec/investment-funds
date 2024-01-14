@@ -26,7 +26,6 @@ const App = (props) => {
         }
     } = props;
     useEffect(() => {
-
         dispatch({
             type: FETCH_FUNDS_DETAIL_FULL.REQUEST,
         });
