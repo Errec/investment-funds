@@ -2,7 +2,7 @@
 import { ApiOrama } from '../utils/api';
 
 class FundsService {
-    static listUsers() {
+    static listFunds() {
         console.log('chamada'); // REMOVE
         // return ApiOrama.get();
     }

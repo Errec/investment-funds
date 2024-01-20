@@ -3,8 +3,8 @@ import React from 'react';
 import { Cell } from 'react-foundation';
 
 // Components
-import TableHead from './TableHead/TableHead.js'
-import TableBody from './TableBody/TableBody.js'
+import TableHead from '../../components/Table/TableHead/TableHead.js'
+import TableBody from '../../components/Table/TableBody/TableBody.js'
 
 // Styles
 import './FundsTable.sass';

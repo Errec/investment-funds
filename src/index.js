@@ -8,7 +8,7 @@ import 'typeface-roboto-slab';
 import './index.css';
 
 // Components
-import App from './components/App/App';
+import App from './containers/App/App';
 
 // Providers
 import Providers from './providers';

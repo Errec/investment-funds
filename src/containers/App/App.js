@@ -8,7 +8,7 @@ import './App.sass';
 
 // Components
 import Header from '../Header/Header.js'
-import Legend from '../Legend/Legend.js'
+import Legend from '../components/Legend/Legend.js'
 import FundsTable from '../FundsTable/FundsTable.js'
 
 // Types
