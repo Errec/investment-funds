@@ -19,17 +19,25 @@ const App = (props) => {
         dispatch,
         fundsReducer: {
             fundsDetailFull: {
-                data,
+                fundsFixedIncome,
+                differentiatedStrategies,
+                fundsVariableIncome,
                 isLoading,
                 error,
             }
         }
     } = props;
+
     useEffect(() => {
-        // dispatch({
-        //     type: FETCH_FUNDS_DETAIL_FULL.REQUEST,
-        // });
+        dispatch({
+            type: FETCH_FUNDS_DETAIL_FULL.REQUEST,
+        });
+        console.log(props);
     }, [])
+
+    useEffect(() => {
+        console.log(props);        
+    }, [isLoading])
 
     return (
         <main className="App">

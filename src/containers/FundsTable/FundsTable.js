@@ -11,7 +11,7 @@ import './FundsTable.sass';
 
 const FundsTable = () => {
     return (
-        <Cell className="funds-table" large={12} medium={12} small={12} isColumn>
+        <Cell className="funds-table" large={12} medium={12} small={12}>
             <div className="new-table-responsive">
                 <table className="funds-table--responsive">
                     <TableHead></TableHead>
