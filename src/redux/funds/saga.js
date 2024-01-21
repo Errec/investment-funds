@@ -29,7 +29,7 @@ function* fetchFundsDetailFull(action) {
                     break;
             }
         });
-        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, fundsFixedIncome, differentiatedStrategies, fundsVariableIncome });
+        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds: [fundsFixedIncome, differentiatedStrategies, fundsVariableIncome] });
     } else {
         yield put({ type: FETCH_FUNDS_DETAIL_FULL.FAILURE, fundsDetailFullError: response.data.error });
     }

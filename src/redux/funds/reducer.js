@@ -5,10 +5,7 @@ import {
 
 const INITIAL_STATE = {
     fundsDetailFull: {
-        fundsFixedIncome: [],
-        differentiatedStrategies: [],
-        fundsVariableIncome: [],
-        isLoading: false,
+        data: [],
         error: '',
     },
 };
@@ -28,9 +25,7 @@ const fundsReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 fundsDetailFull: {
-                    fundsFixedIncome: action.fundsFixedIncome,
-                    differentiatedStrategies: action.differentiatedStrategies,
-                    fundsVariableIncome: action.fundsVariableIncome,
+                    data: action.funds,
                     isLoading: false,
                 },
             };

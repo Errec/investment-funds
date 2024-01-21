@@ -19,9 +19,6 @@ const App = (props) => {
         dispatch,
         fundsReducer: {
             fundsDetailFull: {
-                fundsFixedIncome,
-                differentiatedStrategies,
-                fundsVariableIncome,
                 isLoading,
                 error,
             }
@@ -41,22 +38,22 @@ const App = (props) => {
 
     return (
         <main className="App">
-                {isLoading ? (
-                    <p>LOADING...</p>
-                ):(
-                    <>
-                        <section className="App__top">
-                            <Header></Header>
-                            <Legend></Legend>
-                        </section>
-                        <section className="App__bottom">
-                            <Grid className="App__bottom-grid">
-                                <FundsTable></FundsTable>
-                                {/* <FundsFilter></FundsFilter> */}
-                            </Grid>
-                        </section>
-                    </>
-                )}
+            <section className="App__top">
+                <Header></Header>
+                <Legend></Legend>
+            </section>
+            {isLoading ? (
+                <p>LOADING...</p>
+            ):(
+                <>
+                    <section className="App__bottom">
+                        <Grid className="App__bottom-grid">
+                            <FundsTable></FundsTable>
+                            {/* <FundsFilter></FundsFilter> */}
+                        </Grid>
+                    </section>
+                </>
+            )}
         </main>
     );
 };
