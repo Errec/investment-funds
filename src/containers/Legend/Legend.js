@@ -1,5 +1,7 @@
 // Modules
 import React from 'react';
+
+// Components
 import StarCircleIcon from 'mdi-react/StarCircleIcon';
 import InformationOutlineIcon from 'mdi-react/InformationOutlineIcon';
 import BlockHelperIcon from 'mdi-react/BlockHelperIcon';

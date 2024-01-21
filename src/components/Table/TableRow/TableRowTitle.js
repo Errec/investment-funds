@@ -5,6 +5,9 @@ import React from 'react'
 import HelpCircleIcon from 'mdi-react/HelpCircleIcon';
 import ReactTooltip from 'react-tooltip';
 
+// Styles
+import './TableRowTitle.sass'
+
 
 const TableRowTitle = (props) => {
     const {

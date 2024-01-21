@@ -21,13 +21,13 @@ const TableHead = () => {
             </tr>
             <tr>
                 <th colspan="2"></th>
-                <th style={{width: "70px", textAlign: "right"}}>
+                <th style={{width: "70px"}}>
                     Mês
                 </th>
-                <th style={{width: "70px", textAlign: "right"}}>
+                <th style={{width: "70px"}}>
                     2021
                 </th>
-                <th style={{width: "70px", textAlign: "right"}}>
+                <th style={{width: "70px"}}>
                     12M
                 </th>
                 <th colspan="3"></th>

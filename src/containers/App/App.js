@@ -8,7 +8,7 @@ import './App.sass';
 
 // Components
 import Header from '../Header/Header.js'
-import Legend from '../components/Legend/Legend.js'
+import Legend from '../Legend/Legend.js'
 import FundsTable from '../FundsTable/FundsTable.js'
 
 // Types
@@ -26,14 +26,14 @@ const App = (props) => {
         }
     } = props;
     useEffect(() => {
-        dispatch({
-            type: FETCH_FUNDS_DETAIL_FULL.REQUEST,
-        });
+        // dispatch({
+        //     type: FETCH_FUNDS_DETAIL_FULL.REQUEST,
+        // });
     }, [])
 
     return (
         <main className="App">
-                {!isLoading ? (
+                {isLoading ? (
                     <p>LOADING...</p>
                 ):(
                     <>

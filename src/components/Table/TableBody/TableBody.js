@@ -3,6 +3,8 @@ import React from 'react';
 
 // Components
 import TableRowTitle  from '../TableRow/TableRowTitle'
+import TableRowData  from '../TableRow/TableRowData'
+import TableRowDataSmall  from '../TableRow/TableRowDataSmall'
 
 // Styles
 import './TableBody.sass';
@@ -18,6 +20,8 @@ const TableBody = () => {
                 title="Tesouro Inflação + Juros"
                 tooltipText="Tooltip texto dinêmico inserir aqui aqui 02">
             </TableRowTitle>
+            <TableRowData></TableRowData>
+            <TableRowDataSmall></TableRowDataSmall>
         </tbody>
     );
 };
