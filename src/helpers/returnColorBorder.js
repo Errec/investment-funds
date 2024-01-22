@@ -1,52 +1,40 @@
 const returnColorBorder = (risk) => {
     switch (risk) {
         case 1:
-            "#a6ecfc"
-            break;
+            return "#a6ecfc"
     
         case 2:
-            "#68F1DD"
-            break;
+            return "#68F1DD"
     
         case 3:
-            "#91ed6e"
-            break;
+            return "#91ed6e"
     
         case 4:
-            "#b0f42a"
-            break;
+            return "#b0f42a"
     
         case 5:
-            "#DDF40C"
-            break;
+            return "#DDF40C"
     
         case 6:
-            "#faf00e"
-            break;
+            return "#faf00e"
     
         case 7:
-            "#FFDC00"
-            break;
+            return "#FFDC00"
     
         case 8:
-            "#fb0"
-            break;
+            return "#fb0"
     
         case 9:
-            "#fb0"
-            break;
+            return "#f80"
     
         case 10:
-            "#FF5E00"
-            break;
+            return "#FF5E00"
     
         case 11:
-            "#ff0600"
-            break;
+            return "#ff0600"
     
         case 11:
-            "#B51414"
-            break;
+            return "#B51414"
     
         default:
             break;

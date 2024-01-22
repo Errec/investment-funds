@@ -5,6 +5,9 @@ import shortid from 'shortid';
 // Styles
 import './TableRowDataSmall.sass'
 
+// Helpers
+import returnColorBorder from '../../../helpers/returnColorBorder.js'
+
 const TableRowDataSmall = (props) => {
     const { fundMain } = props;
     return (
@@ -13,17 +16,17 @@ const TableRowDataSmall = (props) => {
             fundMain.map((fundData, index) => (
                 <tr className={'tr-data-small show-for-small-only'} key={shortid.generate()}>
                     <td className="tr-data__td-small">
-                        <span> Claritas Inflação Institucional FIM </span>
-                        <span> [] </span>
+                        <span>{fundData.simple_name}</span>
+                        <span style={{background: returnColorBorder(fundData.specification.fund_risk_profile.score_range_order)}} className="tr-data__td-small-color-square"> </span>
                     </td>
 
                     <td className="tr-data__td-small">
-                        <span> Multimercado | Multimercado Livre </span>
+                        <span> {fundData.specification.fund_type} | {fundData.specification.fund_class} </span>
                     </td>
 
                     <td className="tr-data__td-small text--right font-small-td">
                         <span> Data da cota: </span>
-                        <span> 19/01/2021 </span>
+                        <span> {fundData.quota_date} </span>
                     </td>
 
                     <td className="tr-data__td-small text--right font-small-td">
@@ -33,12 +36,12 @@ const TableRowDataSmall = (props) => {
 
                     <td className="tr-data__td-small text--right font-small-td">
                         <span> Aplicação mínima: </span>
-                        <span> 10.000,00 </span>
+                        <span> {Number(fundData.operability.minimum_initial_application_amount).toFixed(2)} </span>
                     </td>
 
                     <td className="tr-data__td-small text--right font-small-td">
                         <span> Cotização do Resgate: </span>
-                        <span> D+0 </span>
+                        <span> {fundData.operability.retrieval_quotation_days_str} </span>
                     </td>
                     <td className="tr-data__td-small text--right font-small-td">
                         <button>Aplicar</button>
