@@ -1,5 +1,6 @@
 // Modules
 import React from 'react';
+import shortid from 'shortid';
 
 // Components
 import StarCircleIcon from 'mdi-react/StarCircleIcon';
@@ -47,9 +48,9 @@ const Legend = () => {
                 </p>
                 <Grid className="legend__list--1">
                     {legends.map((item, index) => 
-                        <Cell className={"legend__item"} large={3} medium={3} small={12} key={index}>
-                            <item.icon className={`legend__icon legend__icon--${item.iconName}`} size={20} color={item.color}/>
-                            <p className={"legend__description"}>{item.description}</p>
+                        <Cell className={"legend__item"} large={3} medium={3} small={12} key={shortid.generate()}>
+                            <item.icon key={shortid.generate()} className={`legend__icon legend__icon--${item.iconName}`} size={20} color={item.color}/>
+                            <p  key={shortid.generate()} className={"legend__description"}>{item.description}</p>
                         </Cell>)}
                 </Grid>
                 <Grid className="legend__list--2">

@@ -14,6 +14,7 @@ function* fetchFundsDetailFull(action) {
         const fundsFixedIncome = [];
         const fundsVariableIncome = [];
         const differentiatedStrategies = [];
+        const funds = [];
         response.data.forEach(fund => {
             switch (fund.specification.fund_main_strategy.fund_macro_strategy) {
                 case 1:
@@ -29,7 +30,12 @@ function* fetchFundsDetailFull(action) {
                     break;
             }
         });
-        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds: [fundsFixedIncome, differentiatedStrategies, fundsVariableIncome] });
+
+        if(fundsFixedIncome.length) { funds.push(fundsFixedIncome) }
+        if(differentiatedStrategies.length) { funds.push(differentiatedStrategies) }
+        if(fundsVariableIncome.length) { funds.push(fundsVariableIncome) }
+
+        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds });
     } else {
         yield put({ type: FETCH_FUNDS_DETAIL_FULL.FAILURE, fundsDetailFullError: response.data.error });
     }
