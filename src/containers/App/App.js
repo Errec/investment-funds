@@ -13,15 +13,16 @@ import FundsTable from '../FundsTable/FundsTable.js'
 
 // Types
 import { FETCH_FUNDS_DETAIL_FULL } from '../../redux/funds/types';
+import { FETCH_CURRENT_PROFITABILITIES } from '../../redux/profitabilities/types';
 
 const App = (props) => {
     const {
         dispatch,
         fundsReducer: {
-            fundsDetailFull: {
-                isLoading,
-                error,
-            }
+            fundsDetailFull,
+        },
+        profitabilitiesReducer: {
+            currentProfitabilities,
         }
     } = props;
 
@@ -29,12 +30,12 @@ const App = (props) => {
         dispatch({
             type: FETCH_FUNDS_DETAIL_FULL.REQUEST,
         });
-        console.log(props);
+        dispatch({
+            type: FETCH_CURRENT_PROFITABILITIES.REQUEST,
+        });
     }, [])
 
-    useEffect(() => {
-        console.log(props);        
-    }, [isLoading])
+
 
     return (
         <main className="App">
@@ -42,7 +43,7 @@ const App = (props) => {
                 <Header></Header>
                 <Legend></Legend>
             </section>
-            {isLoading ? (
+            {fundsDetailFull.isLoading && currentProfitabilities.isLoading ? (
                 <p>LOADING...</p>
             ):(
                 <>
@@ -61,6 +62,7 @@ const App = (props) => {
 const mapStateToProps = (state) => {
     return {
         fundsReducer: state.fundsReducer,
+        profitabilitiesReducer: state.profitabilitiesReducer,
     };
 }
 

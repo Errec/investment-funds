@@ -7,6 +7,7 @@ const INITIAL_STATE = {
     fundsDetailFull: {
         data: [],
         error: '',
+        isLoading: true,
     },
 };
 

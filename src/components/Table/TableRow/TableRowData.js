@@ -5,15 +5,14 @@ import shortid from 'shortid';
 
 // Components
 import ReplyCircleIcon from 'mdi-react/ReplyCircleIcon';
-import InformationOutlineIcon from 'mdi-react/InformationOutlineIcon';
 import InfoOutlined from '@material-ui/icons/InfoOutlined';
 import Tooltip from '@material-ui/core/Tooltip';
 
 // Styles
-import './TableRowData.sass'
+import './TableRowData.sass';
 
 // Helpers
-import returnColorBorder from '../../../helpers/returnColorBorder.js'
+import returnColorBorder from '../../../helpers/returnColorBorder.js';
 
  const TableRowData = (props) => {
      const { fundMain } = props;

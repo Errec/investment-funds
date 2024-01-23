@@ -20,7 +20,6 @@ const splitMainFunds = (fundMacro, fundKey) => {
         }
         fundsMain[fund.specification.fund_main_strategy[fundKey]].push(fund);
     });
-    console.log(splicedFundsMain);
     return splicedFundsMain;
 };
 
