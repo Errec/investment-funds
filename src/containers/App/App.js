@@ -39,6 +39,10 @@ const App = (props) => {
 
     return (
         <main className="App">
+            <h1>{currentProfitabilities.latestCDIData.benchmark_name}</h1>
+            <h1>{currentProfitabilities.latestCDIData.reference_date}</h1>
+            <h1>{currentProfitabilities.latestIBOVData.benchmark_name}</h1>
+            <h1>{currentProfitabilities.latestIBOVData.reference_date}</h1>
             <section className="App__top">
                 <Header></Header>
                 <Legend></Legend>

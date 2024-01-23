@@ -6,8 +6,8 @@ import {
 const INITIAL_STATE = {
     currentProfitabilities: {
         data: [],
-        lastCDIData: {},
-        lastIBOVData: {},
+        latestCDIData: {},
+        latestIBOVData: {},
         error: '',
         isLoading: true,
     },
@@ -28,9 +28,11 @@ const profitabilitiesReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 currentProfitabilities: {
-                    data: action.cidData,
-                    lastCDIData: action.lastCDIData,
-                    lastIBOVData: action.lastIBOVData,
+                    data: action.profitabilitiesData,
+                    profitabilitiesCDIData: action.profitabilitiesCDIData,
+                    profitabilitiesIBOVData: action.profitabilitiesIBOVData,
+                    latestCDIData: action.latestCDIData,
+                    latestIBOVData: action.latestIBOVData,
                     isLoading: false,
                 },
             };
@@ -40,10 +42,12 @@ const profitabilitiesReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentProfitabilities: {
                     data: [],
-                    lastCDIData: {},
-                    lastIBOVData: {},
+                    latestCDIData: {},
+                    latestIBOVData: {},
+                    profitabilitiesCDIData: [],
+                    profitabilitiesIBOVData: [],
                     isLoading: false,
-                    error: action.cdiDataError,
+                    error: action.profitabilitiesError,
                 },
             };
 
