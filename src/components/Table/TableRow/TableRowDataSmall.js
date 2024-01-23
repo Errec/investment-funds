@@ -1,15 +1,26 @@
 // Modules
 import React from 'react';
 import shortid from 'shortid';
+import moment from 'moment';
+import numeral from 'numeral';
 
 // Styles
 import './TableRowDataSmall.sass'
+
+//Components
+import Tooltip from '@material-ui/core/Tooltip';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 // Helpers
 import returnColorBorder from '../../../helpers/returnColorBorder.js'
 
 const TableRowDataSmall = (props) => {
-    const { fundMain } = props;
+    const {
+         fundMain,
+         cdi,
+         ibov,
+    } = props;
+    
     return (
         <>
         {fundMain.length ? (
@@ -24,26 +35,34 @@ const TableRowDataSmall = (props) => {
                         <span> {fundData.specification.fund_type} | {fundData.specification.fund_class} </span>
                     </td>
 
-                    <td className="tr-data__td-small text--right font-small-td">
+                    <td className="tr-data__td-small font-small-td">
                         <span> Data da cota: </span>
-                        <span> {fundData.quota_date} </span>
+                        <span> {moment(fundData.quota_date).format('DD/MM/YYYY')} </span>
                     </td>
 
-                    <td className="tr-data__td-small text--right font-small-td">
+                    <td className="tr-data__td-small font-small-td">
                         <span> Rentabilidade 12 meses: </span>
-                        <span> 9,19 </span>
+                        <span> {(Number(fundData.profitabilities.m12) * 100).toFixed(2)} </span>
                     </td>
 
-                    <td className="tr-data__td-small text--right font-small-td">
+                    <td className="tr-data__td-small font-small-td">
                         <span> Aplicação mínima: </span>
-                        <span> {Number(fundData.operability.minimum_initial_application_amount).toFixed(2)} </span>
+                        <span> {numeral(Number(fundData.operability.minimum_initial_application_amount).toFixed(2)).format('0,000.00')} </span>
                     </td>
 
-                    <td className="tr-data__td-small text--right font-small-td">
+                    <td className="tr-data__td-small font-small-td">
                         <span> Cotização do Resgate: </span>
-                        <span> {fundData.operability.retrieval_quotation_days_str} </span>
+                        <span>
+                            {fundData.operability.retrieval_quotation_days_str.substring(0, 2).includes('D+') ? (
+                                fundData.operability.retrieval_quotation_days_str.substring(0, 5).replace(/(\d)\D+$/g, '$1')
+                            ):(
+                                <Tooltip title={fundData.operability.retrieval_quotation_days_str}>
+                                    <InfoOutlinedIcon></InfoOutlinedIcon>
+                                </Tooltip>
+                            )}
+                        </span>
                     </td>
-                    <td className="tr-data__td-small text--right font-small-td">
+                    <td className="tr-data__td-small font-small-td">
                         <button>Aplicar</button>
                         <button> Mais Detalhes </button>
                     </td>

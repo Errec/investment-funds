@@ -33,7 +33,7 @@ const returnColorBorder = (risk) => {
         case 11:
             return "#ff0600"
     
-        case 11:
+        case 12:
             return "#B51414"
     
         default:
