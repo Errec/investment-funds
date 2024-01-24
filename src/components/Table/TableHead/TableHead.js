@@ -20,7 +20,7 @@ const TableHead = () => {
                 <th>Aplicar</th>
             </tr>
             <tr>
-                <th colSpan="2"></th>
+                <th colSpan={2}></th>
                 <th style={{width: "70px"}}>
                     Mês
                 </th>
@@ -30,7 +30,7 @@ const TableHead = () => {
                 <th style={{width: "70px"}}>
                     12M
                 </th>
-                <th colSpan="3"></th>
+                <th colSpan={3}></th>
             </tr>
         </thead>
     );

@@ -4,7 +4,7 @@ import 'foundation-sites/dist/css/foundation.min.css';
 import 'typeface-roboto-slab';
 
 // Styles
-import './index.css';
+import './index.sass';
 
 // Components
 import App from './containers/App/App';

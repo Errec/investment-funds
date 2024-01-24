@@ -1,15 +1,18 @@
 // Modules
-import React from 'react';
+import React, { useState } from 'react';
 import shortid from 'shortid';
 import moment from 'moment';
 import numeral from 'numeral';
 
 
 // Components
-import Tooltip from '@material-ui/core/Tooltip';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import StarCircleIcon from 'mdi-react/StarCircleIcon';
+import EarthPlusIcon from 'mdi-react/EarthPlusIcon';
 import ReplyCircleIcon from 'mdi-react/ReplyCircleIcon';
 import BlockIcon from 'mdi-react/BlockIcon';
+import FundRowDetail from '../FundRowDetail/FundRowDetail'
+import Tooltip from '@material-ui/core/Tooltip';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import RentabilityCalc from '../RentabilityCalc/RentabilityCalc'
 
 // Styles
@@ -25,16 +28,27 @@ import returnColorBorder from '../../../helpers/returnColorBorder.js';
          ibov,
     } = props;
 
+    const [showDetails, setShowDetails] = useState(null)
+    const [expand, setExpand] = useState(false)
+    const handleRowClick = (id) => {
+        if (id === showDetails) {
+            setExpand(!expand);
+        } else {
+            setShowDetails(id);
+            setExpand(true);
+        }
+    }
     return (
         <>
         {fundMain.length ? (
             fundMain.map((fundData, index) => (
-                <tr className="tr-data main-row hide-for-small-only" key={shortid.generate()}>
+                <>
+                <tr onClick={() => handleRowClick(fundData.id)} className="tr-data main-row hide-for-small-only" key={fundData.id}>
                     <td style={{borderLeftColor: returnColorBorder(fundData.specification.fund_risk_profile.score_range_order) }} className="tr-data__td tr-data__color">
                         <div>
                             {fundData.simple_name}
-                            {fundData.specification.is_qualified ? (<span>...QUALIFICADO...</span>):('')}
-                            {fundData.esg_seal ? (<span>...AMBIENTE...</span>):('')}
+                            {fundData.specification.is_qualified ? (<StarCircleIcon></StarCircleIcon>):('')}
+                            {fundData.esg_seal ? (<EarthPlusIcon></EarthPlusIcon>):('')}
                             <br></br>
                             {fundData.specification.fund_type} | {fundData.specification.fund_class}
                         </div>
@@ -102,6 +116,10 @@ import returnColorBorder from '../../../helpers/returnColorBorder.js';
                         )}
                     </td>
                 </tr>
+                <tr className="tr-data hide-for-small-only" key={shortid.generate()}>    
+                <FundRowDetail expand={expand} fundData={fundData} isVisible={showDetails} id={fundData.id}></FundRowDetail>
+                </tr>
+                </>
             ))
 
         ) : (

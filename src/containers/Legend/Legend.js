@@ -4,10 +4,10 @@ import shortid from 'shortid';
 
 // Components
 import StarCircleIcon from 'mdi-react/StarCircleIcon';
+import EarthPlusIcon from 'mdi-react/EarthPlusIcon';
 import InformationOutlineIcon from 'mdi-react/InformationOutlineIcon';
 import BlockHelperIcon from 'mdi-react/BlockHelperIcon';
 import ReplyCircleIcon from 'mdi-react/ReplyCircleIcon';
-import EarthPlusIcon from 'mdi-react/EarthPlusIcon';
 import { Grid, Cell } from 'react-foundation';
 
 // Styles

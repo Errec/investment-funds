@@ -8,7 +8,9 @@ import numeral from 'numeral';
 import './TableRowDataSmall.sass'
 
 //Components
+import { Button } from 'react-foundation';
 import Tooltip from '@material-ui/core/Tooltip';
+import ReplyCircleIcon from 'mdi-react/ReplyCircleIcon';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 // Helpers
@@ -17,8 +19,6 @@ import returnColorBorder from '../../../helpers/returnColorBorder.js'
 const TableRowDataSmall = (props) => {
     const {
          fundMain,
-         cdi,
-         ibov,
     } = props;
     
     return (
@@ -63,8 +63,8 @@ const TableRowDataSmall = (props) => {
                         </span>
                     </td>
                     <td className="tr-data__td-small font-small-td">
-                        <button>Aplicar</button>
-                        <button> Mais Detalhes </button>
+                        <Button>APLICAR</Button>
+                        <Button>MAIS DETALHES<ReplyCircleIcon></ReplyCircleIcon></Button>
                     </td>
                 </tr>
             )
