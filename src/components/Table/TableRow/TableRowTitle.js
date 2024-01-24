@@ -16,7 +16,7 @@ const TableRowTitle = (props) => {
     } = props;
 
     return (
-        <tr className="tr-title" style={{backgroundColor: 'honeydew'}}>
+        <tr className="tr-title">
             <td className="tr-title__fund-type" colSpan={8}>
                 {title}
                 <Tooltip title={tooltipText}>

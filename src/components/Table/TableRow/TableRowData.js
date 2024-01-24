@@ -117,7 +117,12 @@ import returnColorBorder from '../../../helpers/returnColorBorder.js';
                     </td>
                 </tr>
                 <tr className="tr-data hide-for-small-only" key={shortid.generate()}>    
-                <FundRowDetail expand={expand} fundData={fundData} isVisible={showDetails} id={fundData.id}></FundRowDetail>
+                <FundRowDetail
+                    className="fund-row-detail"
+                    expand={expand}
+                    fundData={fundData}
+                    isVisible={showDetails}
+                    id={fundData.id}/>
                 </tr>
                 </>
             ))

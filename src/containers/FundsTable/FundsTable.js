@@ -1,10 +1,10 @@
 // Modules
 import React from 'react';
 import { connect } from 'react-redux';
-import { Cell } from 'react-foundation';
 import shortid from 'shortid';
 
 // Components
+import { Cell } from 'react-foundation';
 import TableHead from '../../components/Table/TableHead/TableHead.js'
 import TableBody from '../../components/Table/TableBody/TableBody.js'
 

@@ -7,9 +7,10 @@ import { Grid } from 'react-foundation';
 import './App.sass';
 
 // Components
-import Header from '../Header/Header.js'
-import Legend from '../Legend/Legend.js'
-import FundsTable from '../FundsTable/FundsTable.js'
+import Header from '../Header/Header'
+import Legend from '../Legend/Legend'
+import FundsTable from '../FundsTable/FundsTable'
+import Filters from '../Filters/Filters'
 
 // Types
 import { FETCH_FUNDS_DETAIL_FULL } from '../../redux/funds/types';
@@ -49,8 +50,8 @@ const App = (props) => {
                 <>
                     <section className="App__bottom">
                         <Grid className="App__bottom-grid">
+                            <Filters></Filters>
                             <FundsTable></FundsTable>
-                            {/* <FundsFilter></FundsFilter> */}
                         </Grid>
                     </section>
                 </>

@@ -7,7 +7,7 @@ import './TableHead.sass';
 const TableHead = () => {
     return (
         <thead className="table-head hide-for-small-only">
-            <tr>
+            <tr className="table-head__legends table-head__legends--fixed">
                 <th>Fundo</th>
                 <th>Data da cota</th>
                 <th colSpan={3} className="rentability-group">
@@ -19,7 +19,7 @@ const TableHead = () => {
                 <th>Cotização do resgate</th>
                 <th>Aplicar</th>
             </tr>
-            <tr>
+            <tr className="table-head__date table-head__date--fixed">
                 <th colSpan={2}></th>
                 <th style={{width: "70px"}}>
                     Mês

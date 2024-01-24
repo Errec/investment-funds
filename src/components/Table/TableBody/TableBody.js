@@ -15,7 +15,7 @@ import './TableBody.sass';
 const splitMainFunds = (fundMacro, fundKey) => {
     const fundsMain = {};
     const splicedFundsMain = [];
-    fundMacro.forEach((fund, index) => {
+    fundMacro.forEach((fund) => {
         if (!(fund.specification.fund_main_strategy[fundKey] in fundsMain)) {
             fundsMain[fund.specification.fund_main_strategy[fundKey]] = [];
             splicedFundsMain.push(fundsMain[fund.specification.fund_main_strategy[fundKey]]);

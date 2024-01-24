@@ -15,6 +15,7 @@ function* fetchFundsDetailFull(action) {
         const fundsVariableIncome = [];
         const differentiatedStrategies = [];
         const funds = [];
+        const isLoading = false;
         response.data.forEach(fund => {
             switch (fund.specification.fund_main_strategy.fund_macro_strategy) {
                 case 1:
@@ -35,7 +36,7 @@ function* fetchFundsDetailFull(action) {
         if(differentiatedStrategies.length) { funds.push(differentiatedStrategies) }
         if(fundsVariableIncome.length) { funds.push(fundsVariableIncome) }
 
-        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds });
+        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds, isLoading });
     } else {
         yield put({ type: FETCH_FUNDS_DETAIL_FULL.FAILURE, fundsDetailFullError: response.data.error });
     }
