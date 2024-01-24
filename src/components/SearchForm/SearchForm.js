@@ -18,7 +18,6 @@ const SearchForm = () => {
     const [searchName, setSearchName] = useState('');
 
     const handleSearchChange = (value) => {
-        console.log(value);
         setSearchName(value)
     }
 

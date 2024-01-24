@@ -6,7 +6,8 @@ import React from 'react'
 
 // Components
 import SearchForm from '../../components/SearchForm/SearchForm'
-import { Grid, Cell } from 'react-foundation';
+import SliderFilter from '../../components/SliderFilter/SliderFilter'
+import { Grid } from 'react-foundation';
 import Paper from '@material-ui/core/Paper';
 
 const Filters = (props) => {
@@ -14,6 +15,22 @@ const Filters = (props) => {
         <Paper className="filters" elevation={1}>
             <Grid>
                 <SearchForm></SearchForm>
+                {/* <SliderFilter
+                    large={4}
+                    medium={6}
+                    marks={}
+                    maxValue={}
+                    subtitlePrefix={'Até R$ '}
+                    subtitleSuffix={''}
+                    title={'Aplicação mínima'}/>
+                <SliderFilter
+                    large={4}
+                    medium={6}
+                    marks={}
+                    maxValue={}
+                    subtitlePrefix={'Até '}
+                    subtitleSuffix={' dias úteis'}
+                    title={'Aplicação mínima'}/> */}
             </Grid>
         </Paper>
     )
