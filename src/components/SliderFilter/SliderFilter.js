@@ -37,7 +37,6 @@ const SliderFilter = (props) => {
             defaultValue={maxValue}
             steps={ null }
             marks={ marks }
-            dots={true}
             onChange={(newValue) => {handleChange(newValue)}}/>
             <p className='subtitle'>Até {marksValues[newValue].label}</p>
         </Cell>

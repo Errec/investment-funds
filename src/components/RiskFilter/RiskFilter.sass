@@ -1,0 +1,49 @@
+.risk-filter__wrapper
+    position: relative
+    .rc-slider-rail
+        background-color: transparent !important
+    .rc-slider-track
+        height: 2px !important
+        background-color: #505152 !important
+        left: -2.2% !important
+        top: 13px !important
+    .rc-slider-handle
+        position: relative
+        width: 0
+        height: 0
+        border: none
+        &::after
+            content: '\25B2'
+            position: absolute
+            font-size: 1.2rem
+            right: -6px
+            top: -4px
+.risk-filter__filter
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    span
+        margin: 0 12px
+        color: #505152
+        font-size: 0.8rem
+        pointer-events: none
+
+.risk-filter__bars
+    pointer-events: none
+    position: absolute
+    // padding: 0 11.4%
+    padding: 0 56px
+    margin: 0 auto
+    left: 0
+    right: 0
+    bottom: 14px
+    display: flex
+    justify-content: space-between
+    align-items: baseline
+    span
+        display: block
+        width: 7px
+        height: 17px
+        

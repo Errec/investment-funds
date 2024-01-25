@@ -2,7 +2,11 @@
 import numeral from 'numeral'
 import { call, put, takeEvery } from 'redux-saga/effects';
 
+// Services
 import FundsService from '../../services/funds.js';
+
+// Helpers
+import returnColorBorder from '../../helpers/returnColorBorder'
 
 /* Types */
 import {
@@ -33,8 +37,16 @@ function* fetchFundsDetailFull(action) {
                 }; 
         });
 
+        const riskFilter = [...new Set(response.data.map(item => Number(item.specification.fund_risk_profile.score_range_order)))].sort((a, b) => a - b)
+            .map((risk) => { 
+                return { 
+                    value: risk, 
+                    label: returnColorBorder(risk), 
+                }; 
+        });
 
-        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds: response.data, minValueFilter, minRetrievalFilter });
+
+        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds: response.data, minValueFilter, minRetrievalFilter, riskFilter });
     } else {
         yield put({ type: FETCH_FUNDS_DETAIL_FULL.FAILURE, fundsDetailFullError: response.data.error });
     }

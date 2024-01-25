@@ -8,6 +8,7 @@ const INITIAL_STATE = {
         data: [],
         minValueFilter: [],
         minRetrievalFilter: [],
+        riskFilter: [],
         error: '',
         isLoading: true,
     },
@@ -31,6 +32,7 @@ const fundsReducer = (state = INITIAL_STATE, action) => {
                     data: action.funds,
                     minValueFilter: action.minValueFilter,
                     minRetrievalFilter: action.minRetrievalFilter,
+                    riskFilter: action.riskFilter,
                     isLoading: false,
                 },
             };
@@ -42,6 +44,7 @@ const fundsReducer = (state = INITIAL_STATE, action) => {
                     data: [],
                     minRetrievalFilter: [],
                     minRetrievalFilter: [],
+                    riskFilter: [],
                     isLoading: false,
                     error: action.fundsDetailFullError,
                 },
