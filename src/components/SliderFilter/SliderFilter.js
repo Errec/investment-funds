@@ -1,9 +1,10 @@
 // Modules
 import React, { useState } from 'react'
-import Slider from '@material-ui/core/Slider';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 // Styles
-    import './SliderFilter.sass'
+import './SliderFilter.sass'
 
 // Components
 import { Cell } from 'react-foundation';
@@ -14,27 +15,31 @@ const SliderFilter = (props) => {
         medium,
         marks,
         maxValue,
-        subtitlePrefix,
-        subtitleSuffix,
+        minValue,
+        marksValues,
         title
     } = props;
-
-    const [value, setValue] = useState(maxValue)
-    const handleChange = (value) => {
-        setValue(value);
+    const [newValue, setValue] = useState(maxValue)
+    const handleChange = (newValue) => {
+        console.log(marksValues)
+        setValue(newValue);
     }
+
+
+    console.log(props);
 
     return (
         <Cell className="slider-filter hide-for-small-only" large={large} medium={medium}>
             <p>{title}</p>
-            <Slider
-              step={null}
-              defaultValue={maxValue}
-              valueLabelDisplay="off"
-              marks={marks}
-              onChange={(e, value) => handleChange(value)}
-            />
-            <p className='subtitle'>{subtitlePrefix}{value}{subtitleSuffix}</p>
+            <Slider 
+            min={minValue}
+            max={maxValue}
+            defaultValue={maxValue}
+            steps={ null }
+            marks={ marks }
+            dots={true}
+            onChange={(newValue) => {handleChange(newValue)}}/>
+            <p className='subtitle'>Até {marksValues[newValue].label}</p>
         </Cell>
     )
 }

@@ -1,4 +1,5 @@
 /* Modules */
+import numeral from 'numeral'
 import { call, put, takeEvery } from 'redux-saga/effects';
 
 import FundsService from '../../services/funds.js';
@@ -11,7 +12,29 @@ import {
 function* fetchFundsDetailFull(action) {
     const response = yield call(FundsService.listFunds, action);
     if (response.status === 200) {
-        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds: response.data});
+        response.data.map(item => item.age)
+        .filter((value, index, self) => self.indexOf(value) === index)
+
+
+        const minValueFilter = [...new Set(response.data.map((item)=> Number(item.operability.minimum_initial_application_amount)))].sort((a, b) => a - b)
+            .map((amount) => { 
+                return { 
+                    value: amount, 
+                    label: 'R$' + numeral(Number(amount).toFixed(2)).format('0,000.00'), 
+                    
+                }; 
+        });
+
+        const minRetrievalFilter = [...new Set(response.data.map(item => Number(item.operability.retrieval_quotation_days)))].sort((a, b) => a - b)
+            .map((days) => { 
+                return { 
+                    value: days, 
+                    label: days <= 1 ? days + " dia útil" : days + " dias úteis", 
+                }; 
+        });
+
+
+        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds: response.data, minValueFilter, minRetrievalFilter });
     } else {
         yield put({ type: FETCH_FUNDS_DETAIL_FULL.FAILURE, fundsDetailFullError: response.data.error });
     }

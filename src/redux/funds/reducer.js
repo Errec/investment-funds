@@ -6,6 +6,8 @@ import {
 const INITIAL_STATE = {
     fundsDetailFull: {
         data: [],
+        minValueFilter: [],
+        minRetrievalFilter: [],
         error: '',
         isLoading: true,
     },
@@ -27,6 +29,8 @@ const fundsReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 fundsDetailFull: {
                     data: action.funds,
+                    minValueFilter: action.minValueFilter,
+                    minRetrievalFilter: action.minRetrievalFilter,
                     isLoading: false,
                 },
             };
@@ -36,6 +40,8 @@ const fundsReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 fundsDetailFull: {
                     data: [],
+                    minRetrievalFilter: [],
+                    minRetrievalFilter: [],
                     isLoading: false,
                     error: action.fundsDetailFullError,
                 },

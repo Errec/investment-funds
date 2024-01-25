@@ -18,12 +18,14 @@ const Filters = (props) => {
     const {
         dispatch,
         fundsReducer: {
-            fundsDetailFull,
+            fundsDetailFull
         },
         filtersReducer
     } = props;
 
     const [searchText, setSearchText] = useState('');
+    const marksValues =  Array.from(Array(fundsDetailFull.minValueFilter.length).keys())
+    const marksDays =  Array.from(Array(fundsDetailFull.minRetrievalFilter.length).keys())
     useEffect(() => {
         dispatch({
             type: SET_FUNDS_FILTER.REQUEST,
@@ -38,22 +40,34 @@ const Filters = (props) => {
         <Paper className="filters" elevation={1}>
             <Grid>
                 <SearchForm setSearchText={setSearchText}></SearchForm>
-                {/* <SliderFilter
-                    large={4}
-                    medium={6}
-                    marks={}
-                    maxValue={}
-                    subtitlePrefix={'Até R$ '}
-                    subtitleSuffix={''}
-                    title={'Aplicação mínima'}/>
                 <SliderFilter
                     large={4}
                     medium={6}
-                    marks={}
-                    maxValue={}
+                    marks={fundsDetailFull.minValueFilter ? marksValues : []}
+                    marksValues={fundsDetailFull.minValueFilter}
+                    maxValue={marksValues[marksValues.length - 1]}
+                    minValue={marksValues[marksValues[0]]}
+                    title={'Aplicação mínima'}/>
+
+                <SliderFilter
+                    large={4}
+                    medium={6}
+                    marks={fundsDetailFull.minRetrievalFilter ? marksDays : []}
+                    marksValues={fundsDetailFull.minRetrievalFilter}
+                    maxValue={marksDays[marksDays.length - 1]}
+                    minValue={marksDays[marksDays[0]]}
+                    title={'Prazo de resgate'}/>
+
+                {/* <SliderFilter
+                    large={4}
+                    medium={6}
+                    marks={fundsDetailFull.minRetrievalFilter ? fundsDetailFull.minRetrievalFilter : []}
+                    maxValue={fundsDetailFull.minRetrievalFilter[fundsDetailFull.minRetrievalFilter.length - 1]}
+                    minValue={fundsDetailFull.minRetrievalFilter[fundsDetailFull.minRetrievalFilter[0]]}
+                    // maxValue={fundsDetailFull.minRetrievalFilter ? Object.values(fundsDetailFull.minRetrievalFilter[fundsDetailFull.minRetrievalFilter.length - 1])[0] : 0}
                     subtitlePrefix={'Até '}
                     subtitleSuffix={' dias úteis'}
-                    title={'Aplicação mínima'}/> */}
+                    title={'Prazo de resgate'}/> */}
             </Grid>
         </Paper>
     )
