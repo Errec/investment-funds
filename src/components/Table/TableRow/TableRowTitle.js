@@ -20,7 +20,7 @@ const TableRowTitle = (props) => {
             <td className="tr-title__fund-type" colSpan={8}>
                 {title}
                 <Tooltip title={tooltipText}>
-                <Help color="action"></Help>
+                <Help style={{height: "1rem"}} color="action"></Help>
                 </Tooltip>
             </td>
         </tr>

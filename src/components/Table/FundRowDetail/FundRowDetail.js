@@ -1,11 +1,11 @@
 // Modules
-import React, {setState} from 'react';
+import React from 'react';
 
 // Styles
 import './FundRowDetail.sass'
 
 //Components
-import { Grid, Cell, Button } from 'react-foundation';
+import { Grid, Cell} from 'react-foundation';
 import Tooltip from '@material-ui/core/Tooltip';
 import HelpIcon from '@material-ui/icons/Help';
 
@@ -26,48 +26,48 @@ function FundRowDetail(props) {
                     <ul>
                         <li>
                             <span>Cotização da aplicação: </span>
-                            <span>{fundData.operability.application_quotation_days_str}</span>
+                            <span>{fundData.operability.application_quotation_days_str} </span>
                             <Tooltip title={"Total de dias para que o valor aplicado seja convertio em cotas do fundo."}>
-                                <HelpIcon></HelpIcon>
+                                <HelpIcon style={{fontSize: "1.1rem"}}></HelpIcon>
                             </Tooltip>
                         </li>
                         <li>
                             <span>Cotização do resgate: </span>
-                            <span>{fundData.operability.retrieval_quotation_days_str}</span>
+                            <span>{fundData.operability.retrieval_quotation_days_str} </span>
                             <Tooltip title={"Total de dias para que as cotas do fundo sejam transformadas em valor monetário."}>
-                                <HelpIcon></HelpIcon>
+                                <HelpIcon style={{fontSize: "1.1rem"}}></HelpIcon>
                             </Tooltip>
                         </li>
                         <li>
                             <span>Liquidação do resgate: </span>
-                            <span>{fundData.operability.retrieval_liquidation_days_str}</span>
+                            <span>{fundData.operability.retrieval_liquidation_days_str} </span>
                             <Tooltip title={"Total de dias após a conversão para que o valor do resgate esteja dispononível em sua Subconta Órama."}>
-                                <HelpIcon></HelpIcon>
+                                <HelpIcon style={{fontSize: "1.1rem"}}></HelpIcon>
                             </Tooltip>
                         </li>
                         <li>
                             <span>Taxa de administração: </span>
-                            <span>{fundData.fees.administration_fee}</span>
+                            <span>{fundData.fees.administration_fee} </span>
                             <Tooltip title={"Taxa anual cobrada pelo Administrador do Fundo como remuneração pelos serviços prestados."}>
-                                <HelpIcon></HelpIcon>
+                                <HelpIcon style={{fontSize: "1.1rem"}}></HelpIcon>
                             </Tooltip>
                         </li>
                         <li>
                             <span>Horário limite de aplicação: </span>
-                            <span>{fundData.operability.application_time_limit.substring(0, 5)}</span>
+                            <span>{fundData.operability.application_time_limit.substring(0, 5)} </span>
                             <Tooltip title={"Horário limite para que a aplicação seja efetivada no mesmo dia. Cancelamentos só poderão ser realizados até esse horário."}>
-                                <HelpIcon></HelpIcon>
+                                <HelpIcon style={{fontSize: "1.1rem"}}></HelpIcon>
                             </Tooltip>
                         </li>
                         <li>
                             <span>Volatilidade 12 meses: </span>
                             <span>{(Number(fundData.volatility_12m) * 100).toFixed(2)}%</span>
                             <Tooltip title={"Medida de dispersão de retornos em relação à sua média.Quanto maior a volatilidade, mais a rentabilidade de um ativo pode variar."}>
-                                <HelpIcon></HelpIcon>
+                                <HelpIcon style={{fontSize: "1.1rem"}}></HelpIcon>
                             </Tooltip>
                         </li>
                     </ul>
-                    <Button>CONHEÇA MAIS</Button>
+                    <button>CONHEÇA MAIS</button>
                     <p>
                     <strong>CNPJ do fundo: </strong> {fundData.cnpj}
                     <br/>

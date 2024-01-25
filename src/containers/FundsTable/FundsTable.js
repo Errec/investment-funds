@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
+import splitFundsArr from '../../helpers/splitFundsArr';
 
 // Components
 import { Cell } from 'react-foundation';
@@ -13,9 +14,9 @@ import './FundsTable.sass';
 
 const FundsTable = (props) => {
     const {
-        fundsReducer: {
-            fundsDetailFull: {
-                data,
+        filtersReducer: {
+            fundsFilterData:{
+                filteredData
             }
         }
     } = props;
@@ -24,7 +25,7 @@ const FundsTable = (props) => {
             <div className="new-table-responsive">
                     <table className="funds-table--responsive">
                         <TableHead></TableHead>
-                        {data.length ? (data.map((fundMacro, index) => (
+                        {filteredData.length ? (splitFundsArr(filteredData).map((fundMacro, index) => (
                             <TableBody fundMacro={fundMacro} key={shortid.generate()}></TableBody>
                         ))):(
                             <></>
@@ -37,7 +38,7 @@ const FundsTable = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        fundsReducer: state.fundsReducer,
+        filtersReducer: state.filtersReducer,
     };
 }
 

@@ -31,12 +31,13 @@ const RentabilityCalc = (props) => {
                 <React.Fragment>
                     <span><b>Rentabilidade do Fundo: </b></span><span>{(Number(fundProfitabily) * 100).toFixed(2)}%</span>
                     <br/>
+                    <br/>
                     <span><b>{(benchmarkName.includes('CDI') || benchmarkName.includes('IMA-B')) ? 'CDI' : 'IBOV'} {type}: </b></span><span>{(Number(benchmarkProfitability) * 100).toFixed(2)}%</span>
                     <hr/>
                     <span>Conforme deliberação da Anbima nº70, quando uma das variáveis, ou ambas, forem negativas, não é permitido que percentual do CDI seja divulgado.</span>
                 </React.Fragment>
                 }>
-                <InfoOutlined color="action"></InfoOutlined>
+                <InfoOutlined style={{height: "1.1rem"}} color="action"></InfoOutlined>
             </Tooltip>
         ):(
             <Tooltip title={

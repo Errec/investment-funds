@@ -1,5 +1,6 @@
 // Modules
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
+import throttle from "lodash/throttle";
 
 // Styles
 import './SearchForm.sass'
@@ -14,16 +15,28 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-const SearchForm = () => {
+const SearchForm = (props) => {
+    const {
+        setSearchText
+    } = props;
     const [searchName, setSearchName] = useState('');
 
-    const handleSearchChange = (value) => {
-        setSearchName(value)
-    }
+    const throttleHandler = useCallback(
+      throttle((value) => {
+        setSearchText(value);
+      }, 1000),
+      []
+    );
 
-    const handleClickSearch = () => {
-        alert('SEARCH FOR: ' + searchName);
-    }
+    const handleSearchChange = useCallback((e) => {
+        const value = e.target.value;
+        setSearchName(value);
+        setTimeout(() => {
+            throttleHandler(value);
+        }, 600);
+      },
+      [throttleHandler]
+    );
 
     return (
         <Cell className="search-form" large={12} medium={12} small={12}>
@@ -32,14 +45,13 @@ const SearchForm = () => {
                     <Input
                         id="component-search"
                         value={searchName}
-                        onChange={(e) => (handleSearchChange(e.target.value))}
+                        onChange={handleSearchChange}
                         aria-describedby="component-search-text"
                         endAdornment={
                             <InputAdornment position="end">
                                 <IconButton
                                 color="primary"
                                 aria-label="search"
-                                onClick={handleClickSearch}
                                 >
                                     <SearchIcon />
                                 </IconButton>

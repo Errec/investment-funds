@@ -27,7 +27,7 @@ const fundsReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 fundsDetailFull: {
                     data: action.funds,
-                    isLoading: action.isLoading,
+                    isLoading: false,
                 },
             };
 

@@ -7,6 +7,7 @@ import { Grid } from 'react-foundation';
 import './App.sass';
 
 // Components
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Header from '../Header/Header'
 import Legend from '../Legend/Legend'
 import FundsTable from '../FundsTable/FundsTable'
@@ -28,14 +29,12 @@ const App = (props) => {
     } = props;
 
     useEffect(() => {
-        if (fundsDetailFull.isLoading && currentProfitabilities.isLoading) {            
             dispatch({
                 type: FETCH_FUNDS_DETAIL_FULL.REQUEST,
             });
             dispatch({
                 type: FETCH_CURRENT_PROFITABILITIES.REQUEST,
             });
-        }
     }, [])
 
     return (
@@ -44,8 +43,8 @@ const App = (props) => {
                 <Header></Header>
                 <Legend></Legend>
             </section>
-            {fundsDetailFull.isLoading && currentProfitabilities.isLoading ? (
-                <p>LOADING...</p>
+            {fundsDetailFull.isLoading || currentProfitabilities.isLoading ? (
+                <CircularProgress className="App__loading"/>
             ):(
                 <>
                     <section className="App__bottom">
