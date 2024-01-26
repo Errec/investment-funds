@@ -24,7 +24,6 @@ const SliderFilter = (props) => {
     const handleChange = (newValue) => {
         setValue(newValue);
         setSearchInput(marksValues[newValue].value);
-        console.log(marksValues[newValue].value);
     }
 
     return (
