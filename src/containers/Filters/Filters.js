@@ -23,26 +23,33 @@ const Filters = (props) => {
         },
         filtersReducer
     } = props;
-
-    const [searchText, setSearchText] = useState('');
     const marksValues =  Array.from(Array(fundsDetailFull.minValueFilter.length).keys())
     const marksDays =  Array.from(Array(fundsDetailFull.minRetrievalFilter.length).keys())
     const marksRisk =  Array.from(Array(fundsDetailFull.riskFilter.length).keys())
+
+    const [searchInput, setSearchInput] = useState('');
+    const [searchMinValueInput, setSearchMinValueInput] = useState(marksValues[marksValues.length - 1]);
+    const [searchRiskInput, setSearchRiskInput] = useState(marksRisk[marksRisk.length - 1]);
+    const [searchMinRetrievalInput, setSearchMinRetrievalInput] = useState(marksDays[marksDays.length - 1]);
     useEffect(() => {
         dispatch({
             type: SET_FUNDS_FILTER.REQUEST,
             data: {
                 funds: fundsDetailFull.data,
-                searchValue: searchText,
+                searchTitle: searchInput,
+                searchMinValueApp: searchMinValueInput,
+                searchRisk: searchRiskInput,
+                searchMinRetrieval: searchMinRetrievalInput,
             }
         });
-    }, [searchText])
+    }, [searchInput, searchMinValueInput, searchMinRetrievalInput, searchRiskInput])
 
     return (
         <Paper className="filters" elevation={1}>
             <Grid className="filters__grid">
-                <SearchForm setSearchText={setSearchText}></SearchForm>
+                <SearchForm setSearchInput={setSearchInput}></SearchForm>
                 <SliderFilter
+                    setSearchInput={setSearchMinValueInput}
                     className="filters__slider"
                     large={3}
                     medium={6}
@@ -53,6 +60,7 @@ const Filters = (props) => {
                     title={'Aplicação mínima'}/>
 
                 <RiskFilter
+                    setSearchRiskInput={setSearchRiskInput}
                     className="filters__slider"
                     large={5}
                     medium={6}
@@ -63,6 +71,7 @@ const Filters = (props) => {
                     title={'Perfil de risco de fundo'}/>
 
                 <SliderFilter
+                    setSearchInput={setSearchMinRetrievalInput}
                     className="filters__slider"
                     large={3}
                     medium={6}

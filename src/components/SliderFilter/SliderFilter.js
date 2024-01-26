@@ -17,11 +17,14 @@ const SliderFilter = (props) => {
         maxValue,
         minValue,
         marksValues,
-        title
+        title,
+        setSearchInput
     } = props;
     const [newValue, setValue] = useState(maxValue)
     const handleChange = (newValue) => {
         setValue(newValue);
+        setSearchInput(marksValues[newValue].value);
+        console.log(marksValues[newValue].value);
     }
 
     return (

@@ -18,10 +18,12 @@ const RiskFilter = (props) => {
         minValue,
         title,
         marksValues,
+        setSearchRiskInput,
     } = props;
     const [newValue, setValue] = useState(maxValue)
     const handleChange = (newValue) => {
         setValue(newValue);
+        setSearchRiskInput(newValue);
     }
 
     return (
