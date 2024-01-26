@@ -17,13 +17,13 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 
 const SearchForm = (props) => {
     const {
-        setSearchText
+        setSearchInput
     } = props;
     const [searchName, setSearchName] = useState('');
 
     const throttleHandler = useCallback(
       throttle((value) => {
-        setSearchText(value);
+        setSearchInput(value);
       }, 1000),
       []
     );
