@@ -28,9 +28,9 @@ const Filters = (props) => {
     const marksRisk =  Array.from(Array(fundsDetailFull.riskFilter.length).keys())
 
     const [searchInput, setSearchInput] = useState('');
-    const [searchMinValueInput, setSearchMinValueInput] = useState(marksValues[marksValues.length - 1]);
+    const [searchMinValueInput, setSearchMinValueInput] = useState(fundsDetailFull.minValueFilter[marksValues.length - 1].value);
     const [searchRiskInput, setSearchRiskInput] = useState(marksRisk[marksRisk.length - 1]);
-    const [searchMinRetrievalInput, setSearchMinRetrievalInput] = useState(marksDays[marksDays.length - 1]);
+    const [searchMinRetrievalInput, setSearchMinRetrievalInput] = useState(fundsDetailFull.minRetrievalFilter[marksDays.length - 1].value);
     useEffect(() => {
         dispatch({
             type: SET_FUNDS_FILTER.REQUEST,
