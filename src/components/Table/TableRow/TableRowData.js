@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
         {fundMain.length ? (
             fundMain.map((fundData, index) => (
                 <>
-                <tr onClick={() => handleRowClick(fundData.id)} className="tr-data main-row hide-for-small-only" key={fundData.id}>
+                <tr onClick={() => handleRowClick(fundData.id)} className={`tr-data main-row hide-for-small-only ${fundData.is_closed_to_capture ? 'tr-data--disabled' : ''}`} key={fundData.id}>
                     <td style={{borderLeftColor: returnColorBorder(fundData.specification.fund_risk_profile.score_range_order) }} className="tr-data__td tr-data__color">
                         <div>
                             {fundData.simple_name}

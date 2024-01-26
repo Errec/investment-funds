@@ -21,16 +21,12 @@ const SliderFilter = (props) => {
     } = props;
     const [newValue, setValue] = useState(maxValue)
     const handleChange = (newValue) => {
-        console.log(marksValues)
         setValue(newValue);
     }
 
-
-    console.log(props);
-
     return (
         <Cell className="slider-filter hide-for-small-only" large={large} medium={medium}>
-            <p>{title}</p>
+            <p className="slider-filter__title">{title}</p>
             <Slider 
             min={minValue}
             max={maxValue}

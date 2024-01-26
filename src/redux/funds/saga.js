@@ -45,8 +45,21 @@ function* fetchFundsDetailFull(action) {
                 }; 
         });
 
-
-        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds: response.data, minValueFilter, minRetrievalFilter, riskFilter });
+        
+        const children = [...new Set(response.data.map(item => item.specification.fund_main_strategy.name))]
+        .map((strategy) => {
+            return { 
+                value: strategy, 
+                label: strategy, 
+            }; 
+        });
+        
+        const fixedIncomeNode = [{
+            value: 'RENDA FIXA',
+            label: 'RENDA FIXA',
+            children,
+        }];
+        yield put({ type: FETCH_FUNDS_DETAIL_FULL.SUCCESS, funds: response.data, minValueFilter, minRetrievalFilter, riskFilter, fixedIncomeNode });
     } else {
         yield put({ type: FETCH_FUNDS_DETAIL_FULL.FAILURE, fundsDetailFullError: response.data.error });
     }

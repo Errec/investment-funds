@@ -1,7 +1,7 @@
 // Modules
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Grid } from 'react-foundation';
+import { Grid, Cell } from 'react-foundation';
 
 // Styles
 import './App.sass';
@@ -12,6 +12,7 @@ import Header from '../Header/Header'
 import Legend from '../Legend/Legend'
 import FundsTable from '../FundsTable/FundsTable'
 import Filters from '../Filters/Filters'
+import CheckboxTreeFilter from '../CheckboxTreeFilter/CheckboxTreeFilter'
 
 // Types
 import { FETCH_FUNDS_DETAIL_FULL } from '../../redux/funds/types';
@@ -49,8 +50,13 @@ const App = (props) => {
                 <>
                     <section className="App__bottom">
                         <Grid className="App__bottom-grid">
-                            <Filters></Filters>
-                            <FundsTable></FundsTable>
+                            <Cell large={9} medium={12}>
+                                <Filters></Filters>
+                                <FundsTable></FundsTable>
+                            </Cell>
+                            <Cell large={3} className="App__bottom-checkbox show-for-large">
+                                <CheckboxTreeFilter></CheckboxTreeFilter>
+                            </Cell>
                         </Grid>
                     </section>
                 </>

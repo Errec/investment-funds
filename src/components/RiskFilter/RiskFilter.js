@@ -24,9 +24,6 @@ const RiskFilter = (props) => {
         setValue(newValue);
     }
 
-
-    console.log(props);
-
     return (
         <Cell className="risk-filter hide-for-small-only" large={large} medium={medium}>
             <p>{title}</p>
